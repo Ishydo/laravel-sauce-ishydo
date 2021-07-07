@@ -1,0 +1,61 @@
+image: code.if8.io:5050/infinit8/snapwinit:latest
+
+services:
+  - mariadb
+
+variables:
+  MARIADB_ROOT_HOST: mariadb
+  MARIADB_DATABASE: snapwinit
+  MARIADB_USER: snapwinit
+  MARIADB_PASSWORD: snapwinit
+  MARIADB_ROOT_PASSWORD: snapwinit
+
+stages:
+  - build
+  - test
+  - deploy
+
+composer:
+  stage: build
+  script:
+    - composer install
+    - cp .env.example .env
+    - php artisan key:generate
+  artifacts:
+    expire_in: 1 month
+    paths:
+      - vendor/
+      - .env
+
+npm:
+  stage: build
+  image: node:16-alpine
+  script:
+    - npm install
+    - npm run production
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-npm
+    paths:
+      - node_modules/
+  artifacts:
+    expire_in: 1 month
+    paths:
+      - public/build/
+      - public/manifest.json
+
+testing:
+  stage: test
+  script:
+    - php artisan migrate
+    - php artisan serve &
+    - vendor/bin/phpunit
+
+deploy_production:
+    stage: deploy
+    only:
+        - master
+    script:
+        - eval $(ssh-agent -s)
+        - echo "$SSH_PRIVATE_KEY" > /tmp/id_rsa && chmod 400 /tmp/id_rsa && ssh-add /tmp/id_rsa && mkdir -p ~/.ssh
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+        - envoy run deploy

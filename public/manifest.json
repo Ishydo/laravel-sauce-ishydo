@@ -1,0 +1,21 @@
+{
+  "name": "YourApp",
+  "short_name": "YourApp",
+  "description": "Let's build your cool app.",
+  "icons": [{
+      "src": "/logo-touch-192.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-touch-512.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+  "start_url": "/?homescreen=1",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#222222",
+  "theme_color": "#F8F8F8"
+}
+  
