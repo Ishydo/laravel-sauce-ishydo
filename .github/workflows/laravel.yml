@@ -102,3 +102,7 @@ jobs:
         php-version: '8.0'
     - name: Envoy goooo
       run: ls -la ~/.ssh
+    - name: Envoy goooo
+      run: cat ~/.ssh/config
+    - name: Envoy goooo
+      run: cat ~/.ssh/known_hosts
