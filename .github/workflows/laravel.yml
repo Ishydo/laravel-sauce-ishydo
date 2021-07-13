@@ -40,11 +40,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [composer]
     steps:
-    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-      with:
-        php-version: '8.0'
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
         mkdir -p database
@@ -71,5 +66,9 @@ jobs:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
+    - name: Envoy goooo
+      run: composer --version
+    - name: Envoy goooo
+      run: ls -la
     - name: Envoy goooo
       run: vendor/bin/envoy run deploy
