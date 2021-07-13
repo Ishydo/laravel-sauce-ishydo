@@ -97,12 +97,11 @@ jobs:
             User lrvlsauce
         if_key_exists: replace # replace / ignore / fail; optional (defaults to fail)
         
+    - name: Adding Known Hosts
+      run: ssh-keyscan -p 2121 -H ${{ secrets.KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+      
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
     - name: Envoy goooo
-      run: ls -la ~/.ssh
-    - name: Envoy goooo
-      run: cat ~/.ssh/config
-    - name: Envoy goooo
-      run: cat ~/.ssh/known_hosts
+      run: vendor/bin/envoy run deploy
