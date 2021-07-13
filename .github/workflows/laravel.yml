@@ -90,8 +90,13 @@ jobs:
         key: ${{ secrets.YOURAPP_SSH_KEY }}
         name: id_rsa # optional
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-        config: ${{ secrets.CONFIG }} # ssh_config; optional
-        if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+        config: |
+          Host lrvlsauce
+            HostName 94.126.16.46
+            Port 2121
+            User lrvlsauce
+            IdentityFile ~/.ssh/id_rsa
+        if_key_exists: replace # replace / ignore / fail; optional (defaults to fail)
         
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
