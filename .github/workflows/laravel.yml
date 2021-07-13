@@ -24,13 +24,11 @@ jobs:
     - name: Generate key
       run: php artisan key:generate
       
-    - name: Get Composer Cache Directory
+    - name: Composer Cache Directory
       id: composer-cache
-      run: |
-        echo "::set-output name=dir::$(composer config cache-files-dir)"
-    - uses: actions/cache@v2
+      uses: actions/cache@v2
       with:
-        path: ${{ steps.composer-cache.outputs.dir }}
+        path: vendor
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-composer-
@@ -40,6 +38,18 @@ jobs:
     runs-on: ubuntu-latest
     needs: [composer]
     steps:
+    
+    - uses: actions/checkout@v2
+    
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      uses: actions/cache@v2
+      with:
+        path: vendor
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+    
     - name: Create Database
       run: |
         mkdir -p database
@@ -55,6 +65,18 @@ jobs:
     runs-on: ubuntu-latest
     needs: [composer]
     steps:
+    
+    - uses: actions/checkout@v2
+    
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      uses: actions/cache@v2
+      with:
+        path: vendor
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+          
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
@@ -63,12 +85,9 @@ jobs:
         known_hosts: '?'
         config: ${{ secrets.CONFIG }} # ssh_config; optional
         if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+        
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
     - name: Envoy goooo
-      run: composer --version
-    - name: Envoy goooo
-      run: ls -la
-    - name: Envoy goooo
-      run: vendor/bin/envoy run deploy
+      run: envoy run deploy
