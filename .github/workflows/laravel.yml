@@ -10,19 +10,15 @@ jobs:
   composer:
     runs-on: ubuntu-latest
     steps:
+
+    - uses: actions/checkout@v2
+    
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
-        
-    - uses: actions/checkout@v2
-    - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      
+
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      
-    - name: Generate key
-      run: php artisan key:generate
       
     - name: Composer Cache Directory
       id: composer-cache
@@ -32,7 +28,8 @@ jobs:
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-composer-
-      
+
+
       
   laravel-tests:
     runs-on: ubuntu-latest
@@ -40,6 +37,12 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
+    
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    
+    - name: Generate key
+      run: php artisan key:generate    
     
     - name: Get Composer Cache Directory
       id: composer-cache
@@ -90,4 +93,4 @@ jobs:
       with:
         php-version: '8.0'
     - name: Envoy goooo
-      run: envoy run deploy
+      run: vendor/bin/envoy run deploy
