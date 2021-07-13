@@ -1,4 +1,4 @@
-@servers(['prod' => ['lrvl@lrvl.i8.gg -p 2121']])
+@servers(['prod' => ['lrvlsauce@lrvl.i8.gg -p 2121']])
 
 @story('deploy')
     update-code
