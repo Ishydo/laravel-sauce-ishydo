@@ -106,4 +106,4 @@ jobs:
     - name: php version
       run: php --version
     - name: Envoy goooo
-      run: /opt/php80/bin/php vendor/bin/envoy run deploy
+      run: php vendor/bin/envoy run deploy
