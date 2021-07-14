@@ -104,4 +104,4 @@ jobs:
       with:
         php-version: '8.0'
     - name: Envoy goooo
-      run: vendor/bin/envoy run deploy
+      run: /opt/php80/bin/php vendor/bin/envoy run deploy
