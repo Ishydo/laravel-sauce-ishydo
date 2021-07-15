@@ -1,4 +1,4 @@
-@servers(['prod' => ['user@yourapp.com']])
+@servers(['prod' => ['lrvlsauce']])
 
 @story('deploy')
     update-code
@@ -40,6 +40,6 @@
 @task('build-frontend')
     source /.nvm/nvm.sh
     nvm use 15
-    cd /httpdocs/snapwinit
+    cd /httpdocs/yourapp
     npm run production
 @endtask
