@@ -21,7 +21,7 @@
             <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Laravel {{ app()->version() }} // PHP8.1</p>
           </dt>
           <dd class="mt-2 ml-9 text-base text-gray-500">
-            You can manage phone, email and chat conversations all from a single mailbox.
+            Some of the latest versions of PHP and Laravel for you to be up to date with the last stacks.
           </dd>
         </div>
 
