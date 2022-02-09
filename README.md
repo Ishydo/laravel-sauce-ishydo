@@ -9,12 +9,17 @@ cp .env.example .env
 cp .env.example.laradock laradock/.env
 ```
 
+### Adapting names
+
+You can adapt values in `.env` and `laradock/.env` to fit your project. 
+Once done, you can get it all started.
+
 ### First launch
 
 ```
 cd laravel-sauce-ishydo/laradock
-docker-compose up mariadb nginx
-docker-compose exec workspace bash
+docker compose up mariadb nginx
+docker compose exec workspace bash
 > composer install
 > php artisan key:generate
 > php artisan config:cache
@@ -35,7 +40,7 @@ Then you can visit `http://localhost`
 
 ```
 cd laravel-sauce-ishydo/laradock
-docker-compose up mariadb nginx
+docker compose up mariadb nginx
 ```
 
 ```
