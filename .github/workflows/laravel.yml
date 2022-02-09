@@ -20,6 +20,10 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --ignore-platform-reqs --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       
+    - name: Install Dependencies
+      run: composer update -q --ignore-platform-reqs --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      
+
     - name: Composer Cache Directory
       id: composer-cache
       uses: actions/cache@v2
