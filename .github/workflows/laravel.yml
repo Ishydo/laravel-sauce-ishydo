@@ -57,7 +57,13 @@ jobs:
     
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-    
+
+     - name: Generate key
+      run: php -v
+
+    - name: Generate key
+      run: php artisan list   
+       
     - name: Generate key
       run: php artisan key:generate    
     
