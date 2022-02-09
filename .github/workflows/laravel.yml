@@ -56,16 +56,7 @@ jobs:
         php-version: '8.1'
     
     - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-
-    - name: Generate key
-      run: php -v
-
-    - name: Generate key
-      run: php artisan list   
-       
-    - name: Generate key
-      run: php artisan key:generate    
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"   
     
     - name: Create Database
       run: |
