@@ -238,7 +238,7 @@
       </div>
       <div class="mt-8 md:mt-0 md:order-1">
         <p class="text-center text-base text-gray-400">
-          &copy; YourLaravelApp, All rights reserved. Built by <a href="https://if8.io">IF8</a>. Version {{ config('app.version') }}
+          &copy; YourLaravelApp, All rights reserved. Built by <a href="https://raitone.com">raitone.com</a>. Version {{ config('app.version') }}
         </p>
       </div>
     </div>
