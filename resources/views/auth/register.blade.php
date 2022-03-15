@@ -1,11 +1,10 @@
 <x-layouts.public>
-    <x-slot name="title">snapwin - Register</x-slot>
+    <x-slot name="title">{{ config('app.name') }} - Register</x-slot>
   
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <!--<x-application-logo class="w-20 h-20 fill-current text-gray-500" />-->
-                <h1>Snapwin</h1>
+                <h1>{{ config('app.name') }}</h1>
             </a>
         </x-slot>
 
