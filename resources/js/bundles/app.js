@@ -1,7 +1,11 @@
 import '../../css/app.css';
 import '../bootstrap';
 
-import 'alpinejs';
+import Alpine from 'alpinejs'
+ 
+window.Alpine = Alpine
+ 
+Alpine.start()
 
 import { createApp } from 'vue';
 
