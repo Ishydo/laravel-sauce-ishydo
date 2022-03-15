@@ -14,7 +14,7 @@
 
     <div class="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
       <div>
-        <a href="#" class="flex">
+        <a href="{{ route('home') }}" class="flex">
           <span class="font-bold">LRVLSI</span>
         </a>
       </div>
