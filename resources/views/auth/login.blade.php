@@ -1,13 +1,7 @@
 <x-layouts.public>
-    <x-slot name="title">snapwin - Login</x-slot>
+    <x-slot name="title">{{ config('app.name') }} - Login</x-slot>
 
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-            {{ config('app.name') }}
-            </a>
-        </x-slot>
-
         <x-auth-session-status class="mb-4" :status="session('status')" />
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 

@@ -2,12 +2,6 @@
     <x-slot name="title">{{ config('app.name') }} - Register</x-slot>
   
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <h1>{{ config('app.name') }}</h1>
-            </a>
-        </x-slot>
-
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">

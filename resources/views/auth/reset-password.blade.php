@@ -1,10 +1,5 @@
-<x-guest-layout>
+<x-layouts.public>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-            {{ config('app.name') }}
-            </a>
-        </x-slot>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -45,4 +40,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.public>
