@@ -10,4 +10,5 @@ return [
     'existing' => 'Déjà un compte ?',
     'signup' => 'S\'inscrire',
     'signin' => 'Se connecter',
+    'dashboard' => 'Tableau de bord',
 ];

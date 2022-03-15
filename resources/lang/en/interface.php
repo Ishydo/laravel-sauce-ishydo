@@ -10,4 +10,5 @@ return [
     'existing' => 'Existing customer?',
     'signup' => 'Sign up',
     'signin' => 'Sign in',
+    'dashboard' => 'Dashboard',
 ];
