@@ -1,14 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CodeController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DecodeController;
 use App\Http\Controllers\DemoController;
-use App\Http\Controllers\ActivityController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScanController;
 
 
@@ -22,6 +20,12 @@ use App\Http\Controllers\ScanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('language/{locale}', function ($locale) {
+    App::setLocale($locale);
+    session(['locale' => $locale]);
+    return redirect()->back();
+});
 
 Route::get('/', function() {
     return view('welcome');

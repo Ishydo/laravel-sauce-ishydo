@@ -6,9 +6,9 @@
 <div class="bg-white">
   <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
     <div>
-      <h2 class="text-base font-semibold text-indigo-600 uppercase tracking-wide">Laravel @ishydo sauce.</h2>
-      <p class="mt-2 text-3xl font-extrabold text-gray-900">Start creating right now.</p>
-      <p class="mt-4 text-lg text-gray-500">For me (and you) to kickstart laravel apps a bit faster with my favourite stack.</p>
+      <h2 class="text-base font-semibold text-indigo-600 uppercase tracking-wide">Laravel sauce <a href="https://twitter.com/ishydo">@ishydo</a></h2>
+      <p class="mt-2 text-3xl font-extrabold text-gray-900">{{ __('interface.welcome') }}</p>
+      <p class="mt-4 text-lg text-gray-500">{{ __('interface.subline') }}</p>
     </div>
     <div class="mt-12 lg:mt-0 lg:col-span-2">
       <dl class="space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:grid-rows-4 sm:grid-flow-col sm:gap-x-6 sm:gap-y-10 lg:gap-x-8">
